@@ -1,0 +1,26 @@
+// const express = require('express') // old way
+import express from "express";
+import cookieParser from "cookie-parser";
+const app = express();
+import cors from "cors";
+import  connectDB from './utils/db.js'
+import dotenv from 'dotenv';
+dotenv.config({});
+
+
+
+//middleware 
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+app.use(cookieParser());
+const corsOptions={
+    origin:'http//localhost:5173',
+    Credentials:true
+}
+app.use(cors(corsOptions)); 
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT,()=>{
+    connectDB();
+    console.log(`Server running at port ${PORT}`);
+})
