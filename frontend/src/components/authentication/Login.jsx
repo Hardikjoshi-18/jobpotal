@@ -20,7 +20,7 @@ const Login = () => {
     password:"",
     role:"",
   });
-  const { Loading} = useSelector(store=>store.auth);
+  const { loading} = useSelector(store=>store.auth);
   const dispatch = useDispatch()
   const navigate = useNavigate();
 
@@ -105,7 +105,7 @@ const Login = () => {
             </RadioGroup>
           </div>
           {
-            Loading ? <Button className="w-full my-4"><Loader2 className="mr-2 h-4 w-4 animate-spin"/>Please wait </Button>:<Button type="submit" className="w-full my-4">Login</Button>
+            loading ? <Button className="w-full my-4"><Loader2 className="mr-2 h-4 w-4 animate-spin"/>Please wait </Button>:<Button type="submit" className="w-full my-4">Login</Button>
           }
           <span className="text-sm">Don't have an account? <Link to="/signup" className="text-blue-600">Login</Link></span>
         </form>
