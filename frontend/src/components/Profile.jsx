@@ -8,12 +8,14 @@ import { Label } from "./ui/label";
 import AppliedJobTable from "./AppliedJobTable";
 import UpdateProfileDialog from "./UpdateProfileDialog";
 import { useSelector } from "react-redux";
+import useGetAppliedJobs from "@/hooks/useGetAppliedJobs";
 
 // const Skills = ["Html", "Css", "Javascript", "Reactjs"];
 const isResume = true;
 
 
 const Profile = () => {
+  useGetAppliedJobs();
     const [open,setOpen]=useState(false);
     const {user} = useSelector(store=>store.auth)
 
@@ -25,7 +27,7 @@ const Profile = () => {
           <div className="flex items-center gap-4">
             <Avatar className="h-24 w-24">
               <AvatarImage
-                src="https://img.freepik.com/premium-vector/beautiful-unique-logo-design-ecommerce-retail-company_1287271-14561.jpg"
+                src={user?.profile?.profilePhoto}
                 alt="profile"
               />
             </Avatar>

@@ -32,7 +32,7 @@ export const applyJob = async (req, res) => {
       });
     }
 
-    const newApplication = Application.create({
+    const newApplication = await Application.create({
       job: jobId,
       applicant: userId,
     });
